@@ -26,7 +26,8 @@ X_iris = iris.data
 y_iris = iris.target
 ```
 
-Standardization
+**Standardization**
+
 Before applying K-Means, we standardize the features. Standardization ensures that all features contribute equally to the distance computation, preventing one feature from dominating the others due to a difference in scale.
 ```{python}
 # Standardize the features

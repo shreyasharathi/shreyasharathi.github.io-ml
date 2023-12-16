@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Amal Sujith">
-<meta name="dcterms.date" content="2023-11-29">
+<meta name="author" content="Shreyas Harathi">
+<meta name="dcterms.date" content="2023-12-01">
 
-<title>Shreyas Harathi - Classification</title>
+<title>Shreyas Harathi - Drug Classification</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,10 +151,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Classification</h1>
+<h1 class="title">Drug Classification</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">code</div>
-    <div class="quarto-category">analysis</div>
+    <div class="quarto-category">classification</div>
   </div>
   </div>
 
@@ -165,14 +164,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Amal Sujith </p>
+             <p>Shreyas Harathi </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 29, 2023</p>
+      <p class="date">December 1, 2023</p>
     </div>
   </div>
   
@@ -182,8 +181,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><strong>Drug Classification</strong></p>
-<p><strong>Introduction</strong> In this blog post, we shall delve into a machine learning project that concentrates on classifying drugs according to patient features. The dataset assigned for this task encapsulates patients’ information and the prescribed medications. To predict the suitable drug for a patient, our objective entails constructing and assessing two classification models: Logistic Regression and Random Forest. <strong>Exploring the Dataset</strong></p>
+<p><strong>Logistic Regression and Random Forrest</strong></p>
+<p><strong>Introduction</strong></p>
+<p>In this blog post, we shall delve into a machine learning project that concentrates on classifying drugs according to patient features. The dataset assigned for this task encapsulates patients’ information and the prescribed medications. To predict the suitable drug for a patient, our objective entails constructing and assessing two classification models: Logistic Regression and Random Forest.</p>
+<p><strong>Exploring the Dataset</strong></p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -328,7 +329,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><strong>Data Preprocessing:</strong> We can check for duplicates in the dataset using df.duplicated().sum() here, the output is 0, implying that there are no duplicates.</p>
+<p><strong>Data Preprocessing</strong></p>
+<p>We can check for duplicates in the dataset using df.duplicated().sum() here, the output is 0, implying that there are no duplicates.</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

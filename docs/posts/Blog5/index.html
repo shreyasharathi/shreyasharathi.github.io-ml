@@ -9,7 +9,7 @@
 <meta name="author" content="Shreyas Harathi">
 <meta name="dcterms.date" content="2023-11-29">
 
-<title>Shreyas Harathi - Non Linear Regression</title>
+<title>Shreyas Harathi - Exploring Housing Data and Regression Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,10 +151,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Non Linear Regression</h1>
+<h1 class="title">Exploring Housing Data and Regression Models</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">code</div>
-    <div class="quarto-category">analysis</div>
+    <div class="quarto-category">non linear regression</div>
+    <div class="quarto-category">regression</div>
   </div>
   </div>
 
@@ -182,10 +182,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><strong>Exploring Housing Data and Regression Models</strong></p>
+<p><strong>Non Linear Regression</strong></p>
 <p><strong>Introduction</strong></p>
 <p>In this blog post, we’ll walk through housing data and apply regression models to predict median house values. Nonlinear regression is a statistical method used to model the relationship between variables through nonlinear functions, allowing for more flexible and complex representations than linear regression. It involves estimating parameters that minimize the difference between observed and predicted values, often requiring optimization techniques.</p>
-<p><strong>The Dataset</strong> Our dataset contains 20640 observations and 9 features and 1 target variable(median_house_value). Let’s load the dataset.</p>
+<p><strong>The Dataset</strong></p>
+<p>Our dataset contains 20640 observations and 9 features and 1 target variable(median_house_value). Let’s load the dataset.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -317,7 +318,7 @@ dtypes: float64(9), object(1)
 memory usage: 1.6+ MB</code></pre>
 </div>
 </div>
-<p>Pre Processing</p>
+<p><strong>Pre Processing</strong></p>
 <p>To gain insights into the dataset, lets preprocess the data by dropping unnecessary columns and create a scatter plot to visualize the relationship between median income and median house value.</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.drop([<span class="st">"housing_median_age"</span>,<span class="st">"households"</span>,<span class="st">"total_bedrooms"</span>,<span class="st">"longitude"</span>,<span class="st">"latitude"</span>,<span class="st">"total_rooms"</span>,<span class="st">"population"</span>,<span class="st">"ocean_proximity"</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>

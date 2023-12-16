@@ -1,14 +1,12 @@
 ---
-title: "Blog-1: Probability theory and random variables"
+title: "Using Naive Bayes To Predict Poisonous Mushrooms"
 author: "Shreyas Harathi"
-date: "2023-11-29"
-categories: [code, analysis]
+date: "2023-12-05"
+categories: [probability, Bayes]
 ---
-**Using Naive Bayes To Predict Poisonous Mushrooms**
+**Probability theory**
 
 **Introduction**
-
-Topic: Probability theory and random variables
 
 In this blog post, we are going to predict if a mushroom is poisonous or not. We are going to apply naive bayes method, which is based on the bayes theorem in probability.
 

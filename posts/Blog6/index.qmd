@@ -1,8 +1,8 @@
 ---
 title: "Credit Card Fraud Detection"
 author: "Shreyas Harathi"
-date: "2023-11-29"
-categories: [code, analysis]
+date: "2023-11-23"
+categories: [Outlier, anamoly, IsolationForest, LocalOutlierFactor]
 ---
 **Oulier Detection**
 
@@ -12,6 +12,7 @@ A classic example to demostrate anamoly and oultier detection is detection of cr
 
 
 **The Dataset**
+
 The datasets contains transactions made by credit cards in September 2013 by european cardholders. This dataset presents transactions that occurred in two days, where we have 492 frauds out of 284,807 transactions.
 
 ```{python}
@@ -45,7 +46,7 @@ print(normal.shape)
 print(fraud.shape)
 ```
 
-Pre Processing
+**Pre Processing**
 
 Let us generate a plot to see the Amount of Transactions per Class.
 
@@ -110,9 +111,11 @@ print(Y.shape)
 **ML Models**
 
 1. Isolation Forest
+
 The key idea behind Isolation Forest is that anomalies are usually the data points that are easiest to isolate or separate from the normal data. Specifically, an isolation forest uses an ensemble of decision trees, each built in a randomized fashion to isolate various instances in the data. When building each tree, the Isolation Forest algorithm randomly selects a feature and then randomly selects a split value between the maximum and minimum values of that feature. The recursively partitions or splits the data along those lines.
 
 2. LOF
+
 LOF captures the degree of outliers by measuring the local deviation of a point compared to its neighbors. Points that stand out with respect to their local neighborhoods will have much higher LOF scores, marking them as potential anomalies. A key advantage of LOF is it does not require any assumptions about the underlying data distribution or definitions of global parameters that define outliers. It relies entirely on local neighborhoods.
 
 The code is as follows:

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Shreyas Harathi">
-<meta name="dcterms.date" content="2023-11-29">
+<meta name="dcterms.date" content="2023-11-23">
 
 <title>Shreyas Harathi - Credit Card Fraud Detection</title>
 <style>
@@ -153,8 +153,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title">
 <h1 class="title">Credit Card Fraud Detection</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">code</div>
-    <div class="quarto-category">analysis</div>
+    <div class="quarto-category">Outlier</div>
+    <div class="quarto-category">anamoly</div>
+    <div class="quarto-category">IsolationForest</div>
+    <div class="quarto-category">LocalOutlierFactor</div>
   </div>
   </div>
 
@@ -172,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 29, 2023</p>
+      <p class="date">November 23, 2023</p>
     </div>
   </div>
   
@@ -185,7 +187,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Oulier Detection</strong></p>
 <p><strong>Introduction</strong></p>
 <p>A classic example to demostrate anamoly and oultier detection is detection of credit card fraud. In the era of digital transactions, credit card fraud has become a prevalent issue. To tackle this problem, machine learning techniques can be employed for anomaly detection.</p>
-<p><strong>The Dataset</strong> The datasets contains transactions made by credit cards in September 2013 by european cardholders. This dataset presents transactions that occurred in two days, where we have 492 frauds out of 284,807 transactions.</p>
+<p><strong>The Dataset</strong></p>
+<p>The datasets contains transactions made by credit cards in September 2013 by european cardholders. This dataset presents transactions that occurred in two days, where we have 492 frauds out of 284,807 transactions.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -380,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 (492, 31)</code></pre>
 </div>
 </div>
-<p>Pre Processing</p>
+<p><strong>Pre Processing</strong></p>
 <p>Let us generate a plot to see the Amount of Transactions per Class.</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>f, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
@@ -453,9 +456,13 @@ Valid Cases : 284315
 </div>
 <p><strong>ML Models</strong></p>
 <ol type="1">
-<li><p>Isolation Forest The key idea behind Isolation Forest is that anomalies are usually the data points that are easiest to isolate or separate from the normal data. Specifically, an isolation forest uses an ensemble of decision trees, each built in a randomized fashion to isolate various instances in the data. When building each tree, the Isolation Forest algorithm randomly selects a feature and then randomly selects a split value between the maximum and minimum values of that feature. The recursively partitions or splits the data along those lines.</p></li>
-<li><p>LOF LOF captures the degree of outliers by measuring the local deviation of a point compared to its neighbors. Points that stand out with respect to their local neighborhoods will have much higher LOF scores, marking them as potential anomalies. A key advantage of LOF is it does not require any assumptions about the underlying data distribution or definitions of global parameters that define outliers. It relies entirely on local neighborhoods.</p></li>
+<li>Isolation Forest</li>
 </ol>
+<p>The key idea behind Isolation Forest is that anomalies are usually the data points that are easiest to isolate or separate from the normal data. Specifically, an isolation forest uses an ensemble of decision trees, each built in a randomized fashion to isolate various instances in the data. When building each tree, the Isolation Forest algorithm randomly selects a feature and then randomly selects a split value between the maximum and minimum values of that feature. The recursively partitions or splits the data along those lines.</p>
+<ol start="2" type="1">
+<li>LOF</li>
+</ol>
+<p>LOF captures the degree of outliers by measuring the local deviation of a point compared to its neighbors. Points that stand out with respect to their local neighborhoods will have much higher LOF scores, marking them as potential anomalies. A key advantage of LOF is it does not require any assumptions about the underlying data distribution or definitions of global parameters that define outliers. It relies entirely on local neighborhoods.</p>
 <p>The code is as follows:</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>classifiers <span class="op">=</span> {</span>
