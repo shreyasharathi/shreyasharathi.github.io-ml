@@ -146,3 +146,5 @@ plt.title("Feature Importance");
 **Conclusion**
 
 At last i used 2 models logitic regression model and random forest model both got 100% accuracy in both training and testing
+
+[SOURCE](https://github.com/shreyasharathi/shreyasharathi.github.io/blob/main/posts/Blog3/index.qmd)

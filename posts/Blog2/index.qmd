@@ -118,3 +118,5 @@ print("R-squared = ", str(r2_score(y_test, y_preds)))
 **Conclusion**
 
 In conclusion, our exploration into the salary dataset using linear regression has provided valuable insights into the relationship between years of experience and salary.
+
+[SOURCE](https://github.com/shreyasharathi/shreyasharathi.github.io/blob/main/posts/Blog2/index.qmd)

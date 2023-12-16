@@ -234,3 +234,5 @@ plt.show()
 **Conclusion**
 
 Model 3 has the best R2 score but it is also far more complex than model 1. This trade off must be considered while selecting a suitable model.
+
+[SOURCE](https://github.com/shreyasharathi/shreyasharathi.github.io/blob/main/posts/Blog5/index.qmd)

@@ -10,7 +10,7 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/shreyasharathi
+        href: https://github.com/shreyasharathi/shreyasharathi.github.io
       - icon: linkedin
         href: www.linkedin.com/in/shreyasharathi
 format:
