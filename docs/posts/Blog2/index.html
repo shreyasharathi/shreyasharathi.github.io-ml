@@ -363,11 +363,11 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>y_preds<span class="op">=</span>lr.predict(x_test)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_preds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[64411.40785202]
- [55845.73244104]
- [46328.31531773]
- [37762.63990675]
- [39666.12333141]]</code></pre>
+<pre><code>[[115975.11118004]
+ [ 65332.66162847]
+ [ 74710.89302691]
+ [ 37197.96743315]
+ [ 64394.83848862]]</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="15">
@@ -390,9 +390,9 @@ dtype: int64</code></pre>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean Squared Error = "</span>, <span class="bu">str</span>(mean_squared_error(y_test, y_preds)))</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R-squared = "</span>, <span class="bu">str</span>(r2_score(y_test, y_preds)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean Absolute Error =  6548.694830673861
-Mean Squared Error =  48828427.82830995
-R-squared =  0.5319378159128454</code></pre>
+<pre><code>Mean Absolute Error =  5501.862906161278
+Mean Squared Error =  40866629.45998808
+R-squared =  0.9409718406926301</code></pre>
 </div>
 </div>
 <p><strong>Conclusion</strong></p>

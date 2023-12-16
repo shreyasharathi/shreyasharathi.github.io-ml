@@ -16,7 +16,6 @@ listing:
   filter-ui: true
  
 page-layout: full
-title-block-banner: "qwq.jpg"
 title-block-banner-color: White
 ---
 
