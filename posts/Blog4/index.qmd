@@ -1,0 +1,10 @@
+---
+title: "Clustering"
+author: "Shreyas Harathi"
+date: "2023-11-29"
+categories: [code, analysis]
+---
+**Drug Classification**
+
+**Introduction**
+In this blog post, we shall delve into a machine learning project that concentrates on classifying drugs according to patient features. The dataset assigned for this task encapsulates patients' information and the prescribed medications. To predict the suitable drug for a patient, our objective entails constructing and assessing two classification models: Logistic Regression and Random Forest.
