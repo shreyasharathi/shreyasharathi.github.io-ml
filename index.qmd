@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "ML BLOGS"
 theme: default
 
 format: html
