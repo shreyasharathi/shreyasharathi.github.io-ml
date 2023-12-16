@@ -1,5 +1,5 @@
 ---
-title: "Clustering"
+title: "K-Means Clustering"
 author: "Shreyas Harathi"
 date: "2023-11-29"
 categories: [code, analysis]
@@ -7,4 +7,65 @@ categories: [code, analysis]
 **Drug Classification**
 
 **Introduction**
-In this blog post, we shall delve into a machine learning project that concentrates on classifying drugs according to patient features. The dataset assigned for this task encapsulates patients' information and the prescribed medications. To predict the suitable drug for a patient, our objective entails constructing and assessing two classification models: Logistic Regression and Random Forest.
+
+Clustering is a fundamental technique in the field of unsupervised machine learning, allowing us to discover hidden patterns and group similar data points together. One popular algorithm for clustering is K-Means, and in this blog post, we'll walk through a hands-on example using the well-known Iris dataset.
+
+**The Dataset**
+
+The Iris dataset is a classic dataset in machine learning, often used for testing and learning purposes. It consists of 150 samples of iris flowers, each belonging to one of three species: setosa, versicolor, or virginica. The features include sepal length, sepal width, petal length, and petal width.
+
+```{python}
+from sklearn.datasets import load_iris
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+# Load the Iris dataset
+iris = load_iris()
+X_iris = iris.data
+y_iris = iris.target
+```
+
+Standardization
+Before applying K-Means, we standardize the features. Standardization ensures that all features contribute equally to the distance computation, preventing one feature from dominating the others due to a difference in scale.
+```{python}
+# Standardize the features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X_iris)
+```
+
+**ML Models**
+
+K-Means Clustering
+
+In our example, we set the number of clusters (K) to 3 since we know that there are three species of iris in the dataset. The algorithm then groups the data points into three clusters based on their similarity.
+
+```{python}
+# Apply K-Means clustering
+kmeans = KMeans(n_clusters=3, random_state=0)
+kmeans.fit(X_scaled)
+y_kmeans = kmeans.predict(X_scaled)
+```
+
+**Visualizing the Data**
+
+The true power of K-Means becomes apparent when we visualize the clustered data. The scatter plot showcases the distinct clusters, with different colors representing each cluster. Additionally, we mark the cluster centers with black 'x' markers.
+
+```{python}
+plt.scatter(X_scaled[:, 0], X_scaled[:, 1], c=y_kmeans, s=50, cmap='viridis')
+
+centers = kmeans.cluster_centers_
+plt.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.75, marker='x')
+
+plt.title('K-Means Clustering')
+plt.xlabel('Standardized Feature 1')
+plt.ylabel('Standardized Feature 2')
+
+plt.figure()
+plt.scatter(X_scaled[:, 0], X_scaled[:, 1], c=y_iris, s=50, cmap='viridis')
+plt.title('True Labels')
+plt.xlabel('Standardized Feature 1')
+plt.ylabel('Standardized Feature 2')
+
+plt.show()
+```
