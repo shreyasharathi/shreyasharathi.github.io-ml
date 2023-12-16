@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+
+website:
+  title: "MachineLearning"
+  
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/AmalSujith7
+      - icon: linkedin
+        href: www.linkedin.com/in/amal-sujith-4a09bb1b5
+format:
+  html:
+    theme: slate
+    css: styles.css
+    
+    
+
+
+

@@ -1,0 +1,20 @@
+---
+title: "About"
+image: IMG_3447.jpeg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/amal-sujith-4a09bb1b5/
+    - icon: github
+      text: Github
+      href: https://github.com/AmalSujith7
+
+---
+
+I am Amal Sujith (ID: 906578048) student of MS in Computer Engineering. I’m currently working on Machine Learning and improving my problem solving skills.
+
+Contact:
+Email: amalsmenon7@gmail.com
+Phone No: +918281725367

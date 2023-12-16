@@ -1,0 +1,144 @@
+---
+title: "Classification"
+author: "Amal Sujith"
+date: "2023-11-29"
+categories: [code, analysis]
+---
+**Drug Classification**
+
+**Introduction**
+In this blog post, we shall delve into a machine learning project that concentrates on classifying drugs according to patient features. The dataset assigned for this task encapsulates patients' information and the prescribed medications. To predict the suitable drug for a patient, our objective entails constructing and assessing two classification models: Logistic Regression and Random Forest.
+**Exploring the Dataset**
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+
+from sklearn.metrics import  classification_report , accuracy_score , confusion_matrix
+from sklearn.model_selection import train_test_split
+
+from sklearn.linear_model import LogisticRegression
+from category_encoders import OrdinalEncoder
+from sklearn.ensemble import RandomForestClassifier
+
+import warnings
+warnings.filterwarnings('ignore')
+```
+
+Our dataset contains details of 200 rows and 6 columns. Each column is a variable, and the variables are : Age, Sex, Blood Pressure, Cholestrol, The ratio of Sodium to Potassium in the Blood and finally, the drug type. This can be verified by running
+```{python}
+df = pd.read_csv("drug200.csv")
+df
+
+```
+
+**Data Preprocessing:**
+We can check for duplicates in the dataset using  df.duplicated().sum() here, the output is 0, implying that there are no duplicates.
+```{python}
+df.info()
+```
+```{python}
+df.duplicated().sum()
+```
+Further, we can generate plots to visualize the distribution of each target varible. For example, we can see the count of each drug using:
+```{python}
+import seaborn as sns
+sns.countplot(x=df['Drug'])
+plt.title('Drug Distribution');
+```
+```{python}
+sns.distplot(df['Age']);
+```
+```{python}
+sns.distplot(df['Na_to_K']);
+```
+```{python}
+sns.set_theme(style="darkgrid")
+sns.countplot(data=df ,x= df['Sex'] , palette='rocket')
+plt.xlabel('Gender (F=female , M=male)')
+plt.ylabel('Total')
+plt.title('Gender distribution');
+```
+```{python}
+sns.countplot(y=df['BP'], data=df , palette="crest")
+plt.ylabel('Blood Pressure')
+plt.xlabel('Total')
+plt.title('Blood Pressure Distribution');
+```
+```{python}
+sns.set_theme(style="ticks")
+sns.scatterplot(x=df.Age[df.Sex=='F'], y=df.Na_to_K[(df.Sex=='F')], c="Red" , )
+sns.scatterplot(x=df.Age[df.Sex=='M'], y=df.Na_to_K[(df.Sex=='M')], c="Blue")
+plt.title('Scattering the Na_to_K based on Age')
+plt.legend(["Female", "Male"])
+plt.xlabel("Age")
+plt.ylabel("Na_to_K");
+plt.grid(visible=False)
+```
+
+**Define features (X) and target (y)**
+
+```{python}
+X = df.drop('Drug' , axis='columns')
+y = df['Drug']
+```
+
+```{python}
+X = pd.get_dummies(X)
+```
+
+**Splitting**
+
+```{python}
+X_train , X_test , y_train , y_test = train_test_split(X , y , test_size=0.2 , shuffle= True ,random_state=42)
+```
+**Machine Learning Models**
+
+1. Logistic Regression
+```{python}
+lr_model = LogisticRegression(max_iter=1500)
+lr_model.fit(X_train , y_train)
+lr_model.score(X_train , y_train)
+lr_pred = lr_model.predict(X_test)
+```
+```{python}
+accuracy_score(y_test , lr_pred)
+print(classification_report(y_test , lr_pred))
+```
+
+```{python}
+sns.heatmap(confusion_matrix(y_test , lr_pred));
+```
+
+2. Random Forest
+```{python}
+RF_model = RandomForestClassifier(n_estimators= 200)
+RF_model.fit(X_train , y_train)
+RF_model.score(X_train , y_train)
+RF_pred = RF_model.predict(X_test)
+```
+
+```{python}
+accuracy_score(y_test , RF_pred)
+print(classification_report(y_test , RF_pred))
+```
+```{python}
+sns.heatmap(confusion_matrix(y_test , RF_pred));
+```
+**Highest Influencing Features**
+
+```{python}
+features = X_test.columns
+importance_f = lr_model.coef_[0]
+feat_imp = pd.Series(importance_f , index=features).sort_values()
+feat_imp.tail().plot(kind= 'barh')
+plt.xlabel("Value")
+plt.ylabel("Features")
+plt.title("Feature Importance");
+```
+
+**Conclusion**
+
+At last i used 2 models logitic regression model and random forest model both got 100% accuracy in both training and testing

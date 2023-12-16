@@ -1,0 +1,123 @@
+---
+title: "Blog-1: Probability theory and random variables"
+author: "Shreyas Harathi"
+date: "2023-11-29"
+categories: [code, analysis]
+---
+**Using Naive Bayes To Predict Poisonous Mushrooms**
+
+**Introduction**
+
+Topic: Probability theory and random variables
+
+In this blog post, we are going to predict if a mushroom is poisonous or not. We are going to apply naive bayes method, which is based on the bayes theorem in probability.
+
+**Import Libraries**
+
+```{python}
+import warnings
+warnings.filterwarnings("ignore")
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+**The Dataset**
+
+This dataset includes descriptions of hypothetical samples corresponding to 23 species of gilled mushrooms in the Agaricus and Lepiota Family Mushroom drawn from The Audubon Society Field Guide to North American Mushrooms in 1981. Each species can be identified as definitely edible, definitely poisonous, or of unknown edibility and not recommended. This latter class was combined with the poisonous one.
+So there 2 classes. Poisonous and edible.
+
+```{python}
+df = pd.read_csv('mushrooms.csv')
+df.head()
+```
+
+Let us now visualize the dataset as a simple pie chart.
+```{python}
+plt.figure(figsize = (6,6))
+plt.pie(df['class'].value_counts(), startangle = 90, autopct = '%.1f', labels = ['Edible', 'Poisonous'], shadow = True)
+plt.show()
+```
+Set dependent and independent variables.
+```{python}
+X = df.iloc[:, 1:].values
+y = df.iloc[:, 0].values
+```
+
+Check if there is null value.
+```{python}
+df.notnull().all()
+```
+All columns are object. So we need to encode them. I am going to use Label Encoding for this.
+Encode Independent Variable
+```{python}
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+X = df.iloc[:, 1:].apply(le.fit_transform).values
+```
+Encode Dependent Variable
+```{python}
+from sklearn.preprocessing import LabelEncoder
+
+le = LabelEncoder()
+y = np.array(le.fit_transform(y))
+y.reshape(len(y), 1)
+```
+**Train Test Split**
+```{python}
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+```
+**ML MODEL**
+
+Feature Scaling
+
+Before we apply the GaussianNB method, we need to scale our data. Differences in the scales across input variables may increase the difficulty of the problem being modeled. So I am going to apply standard scaling. Standardization scales each input variable separately by subtracting the mean (called centering) and dividing by the standard deviation to shift the distribution to have a mean of zero and a standard deviation of one.
+```{python}
+from sklearn.preprocessing import StandardScaler
+
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.fit_transform(X_test)
+```
+Now we can go ahead and try to fit out data in out model.
+```{python}
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
+classifier.fit(X_train, y_train)
+y_pred = classifier.predict(X_test)
+y_prob = classifier.predict_proba(X_test)
+```
+
+```{python}
+from sklearn.metrics import accuracy_score
+accuracy_nb = accuracy_score(y_test, y_pred)
+print('Accuracy is:', accuracy_nb)
+```
+**Confusion Matrix**
+```{python}
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred, normalize='true')
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, cmap='GnBu', xticklabels=['Edible', 'Poisonous'], yticklabels=['Edible', 'Poisonous'])
+plt.title('Normalized Confusion Matrix of Mushroom Dataset')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.show()
+```
+**Distribution**
+
+The resulting plot provides insights into how confident the Naive Bayes classifier is when predicting whether a mushroom is poisonous. The x-axis represents the predicted probabilities, and the y-axis represents the frequency of occurrences at each probability level.
+```{python}
+plt.figure(figsize=(10, 6))
+sns.histplot(y_prob[:, 1], kde=True)
+plt.title('Distribution of Predicted Probabilities for Poisonous Mushrooms')
+plt.xlabel('Predicted Probability')
+plt.ylabel('Frequency')
+plt.show()
+```
+
+**Conclusion**
+
+In this blog post, we explored the GaussianNB model and achieved a score of 0.92 on our model. I do believe that other techniques might be more accurate in making the same predictions. I will update this blog when i try them out.
