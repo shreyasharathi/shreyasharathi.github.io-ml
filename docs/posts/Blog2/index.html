@@ -9,7 +9,7 @@
 <meta name="author" content="Shreyas Harathi">
 <meta name="dcterms.date" content="2023-11-29">
 
-<title>MachineLearning - Linear Regression</title>
+<title>Shreyas Harathi - Linear Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">MachineLearning</span>
+    <span class="navbar-title">Shreyas Harathi</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -125,12 +125,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/AmalSujith7" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/shreyasharathi" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../www.linkedin.com/in/amal-sujith-4a09bb1b5" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="../../www.linkedin.com/in/shreyasharathi" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -363,11 +363,11 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>y_preds<span class="op">=</span>lr.predict(x_test)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_preds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[ 36623.78038843]
- [ 46884.22864594]
- [114976.29435486]
- [ 75800.03737164]
- [ 40354.85248207]]</code></pre>
+<pre><code>[[64218.79979369]
+ [41128.2119545 ]
+ [47593.57654947]
+ [92851.12871429]
+ [54058.94114445]]</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="15">
@@ -390,9 +390,9 @@ dtype: int64</code></pre>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean Squared Error = "</span>, <span class="bu">str</span>(mean_squared_error(y_test, y_preds)))</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R-squared = "</span>, <span class="bu">str</span>(r2_score(y_test, y_preds)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean Absolute Error =  4323.593802615241
-Mean Squared Error =  24054809.94239825
-R-squared =  0.9761718666101641</code></pre>
+<pre><code>Mean Absolute Error =  5273.103687784751
+Mean Squared Error =  31930528.756328225
+R-squared =  0.9324525706231296</code></pre>
 </div>
 </div>
 <p><strong>Conclusion</strong></p>

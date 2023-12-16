@@ -4,18 +4,18 @@ project:
 
 
 website:
-  title: "MachineLearning"
+  title: "Shreyas Harathi"
   
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/AmalSujith7
+        href: https://github.com/shreyasharathi
       - icon: linkedin
-        href: www.linkedin.com/in/amal-sujith-4a09bb1b5
+        href: www.linkedin.com/in/shreyasharathi
 format:
   html:
-    theme: slate
+    theme: default
     css: styles.css
     
     

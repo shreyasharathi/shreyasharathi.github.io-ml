@@ -105,9 +105,6 @@ The plot of simple linear regression :
 plt.scatter(X_train, y_train, s=10)
 plt.xlabel('median_income')
 plt.ylabel('median_house_value')
-```
-
-```{python}
 # predicted values
 plt.plot(X_test, y_predicted, color='r')
 plt.show()
