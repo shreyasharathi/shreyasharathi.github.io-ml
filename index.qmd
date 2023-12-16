@@ -1,6 +1,6 @@
 ---
 title: "ML Blog"
-theme: slate
+theme: default
 
 format: html
 title-slide-style: pandoc
